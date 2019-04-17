@@ -1,0 +1,61 @@
+{
+	"rules": [
+    {
+        "rule-type": "transformation",
+        "rule-id": "1",
+        "rule-name": "1",
+        "rule-action": "rename",
+        "rule-target": "schema",
+        "object-locator": {
+            "schema-name": "SOURCE"
+        },
+        "value": "dest"
+    },    
+    {
+        "rule-type": "selection",
+        "rule-id": "2",
+        "rule-name": "2",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE1"
+        },
+        "rule-action": "include"
+    },
+    {
+        "rule-type": "transformation",
+        "rule-id": "3",
+        "rule-name": "3",
+        "rule-action": "remove-column",
+        "rule-target": "column",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE1",
+            "column-name": "COL_A"
+        }
+    },
+    {
+        "rule-type": "transformation",
+        "rule-id": "4",
+        "rule-name": "4",
+        "rule-action": "remove-column",
+        "rule-target": "column",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE1",
+            "column-name": "COL_B"
+        }
+    },
+    {
+        "rule-type": "transformation",
+        "rule-id": "5",
+        "rule-name": "5",
+        "rule-action": "remove-column",
+        "rule-target": "column",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE1",
+            "column-name": "COL_C"
+        }
+    }
+    ]
+}

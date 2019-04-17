@@ -1,0 +1,45 @@
+{
+	"rules": [
+    {
+        "rule-type": "transformation",
+        "rule-id": "1",
+        "rule-name": "1",
+        "rule-action": "rename",
+        "rule-target": "schema",
+        "object-locator": {
+            "schema-name": "SOURCE"
+        },
+        "value": "dest"
+    },     
+    {
+        "rule-type": "selection",
+        "rule-id": "2",
+        "rule-name": "2",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE1"
+        },
+        "rule-action": "include"
+    },
+    {
+        "rule-type": "selection",
+        "rule-id": "3",
+        "rule-name": "3",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE2"
+        },
+        "rule-action": "include"
+    },
+    {
+        "rule-type": "selection",
+        "rule-id": "4",
+        "rule-name": "4",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE3"
+        },
+        "rule-action": "include"
+    }
+    ]
+}

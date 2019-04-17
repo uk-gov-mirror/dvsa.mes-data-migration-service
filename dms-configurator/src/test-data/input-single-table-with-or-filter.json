@@ -1,0 +1,25 @@
+{
+    "sourceSchema": "SOURCE",
+    "destSchema": "dest",
+    "tables": [ 
+        {
+            "sourceName": "TABLE1",
+            "andFilters": [{
+                "column": "COL",
+                "orConditions": [{
+                    "operator": "eq",
+                    "value": "42"
+                },
+                {
+                    "operator": "between",
+                    "start": "100",
+                    "end": "150"
+                },
+                {
+                    "operator": "eq",
+                    "value": "10"
+                }]
+            }]
+        }
+    ]
+}

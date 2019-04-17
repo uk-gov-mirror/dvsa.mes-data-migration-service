@@ -1,0 +1,15 @@
+{
+    "sourceSchema": "SOURCE",
+    "destSchema": "dest",
+    "tables": [ 
+        {
+            "sourceName": "TABLE1"
+        },
+        {
+            "sourceName": "TABLE2"
+        },
+        {
+            "sourceName": "TABLE3"
+        }
+    ]
+}

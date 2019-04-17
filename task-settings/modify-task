@@ -1,0 +1,11 @@
+//Stop the task//
+aws dms stop-replication-task --replication-task-arn "arn:aws:dms:eu-west-1:920842203002:task:34LICNA4L5KTVYGOAUOJJCHWJM" --region eu-west-1
+
+//Placeholder - update the date ranges//
+blah...
+
+//Modify the task//
+aws dms modify-replication-task --replication-task-arn "arn:aws:dms:eu-west-1:920842203002:task:34LICNA4L5KTVYGOAUOJJCHWJM" --region eu-west-1 --table-mappings "file://table-mappings/dateFiltered-tables.json"
+
+//Restart the task//
+aws dms start-replication-task --replication-task-arn "arn:aws:dms:eu-west-1:920842203002:task:34LICNA4L5KTVYGOAUOJJCHWJM" --region eu-west-1 --start-replication-task-type "reload-target"

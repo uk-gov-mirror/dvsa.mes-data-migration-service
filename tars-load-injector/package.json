@@ -1,0 +1,29 @@
+{
+  "name": "mes-tars-load-injector",
+  "version": "0.1.0",
+  "description": "An application to periodically change data in the TARS database. Used to test Changed Data Capture on AWS Data Migration Service.",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "clean": "rm -rf build",
+    "gitSecrets": "git secrets --scan",
+    "lint": "tslint --project tslint.json",
+    "scanRepo": "git log -p -n 15 | scanrepo",
+    "securityScan": "npm run gitSecrets && npm run scanRepo",
+    "start": "LD_LIBRARY_PATH=~/mes_load_injector/instantclient_12_2 ts-node src/index.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/dotenv": "^6.1.0",
+    "@types/oracledb": "^1.11.34",
+    "ts-node": "^8.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.0",
+    "typescript": "^3.2.4"
+  },
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "oracledb": "^3.0.1",
+    "rxjs": "^6.3.3"
+  }
+}

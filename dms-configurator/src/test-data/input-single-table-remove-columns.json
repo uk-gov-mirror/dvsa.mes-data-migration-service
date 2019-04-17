@@ -1,0 +1,10 @@
+{
+    "sourceSchema": "SOURCE",
+    "destSchema": "dest",
+    "tables": [ 
+        {
+            "sourceName": "TABLE1",
+            "removeColumns": [ "COL_A", "COL_B", "COL_C" ]
+        }
+    ]
+}

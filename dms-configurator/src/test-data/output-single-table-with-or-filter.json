@@ -1,0 +1,42 @@
+{
+	"rules": [
+    {
+        "rule-type": "transformation",
+        "rule-id": "1",
+        "rule-name": "1",
+        "rule-action": "rename",
+        "rule-target": "schema",
+        "object-locator": {
+            "schema-name": "SOURCE"
+        },
+        "value": "dest"
+    },    
+    {
+        "rule-type": "selection",
+        "rule-id": "2",
+        "rule-name": "2",
+        "object-locator": {
+            "schema-name": "SOURCE",
+            "table-name": "TABLE1"
+        },
+        "rule-action": "include",
+        "filters": [{
+            "filter-type": "source",
+            "column-name": "COL",
+            "filter-conditions": [{
+                "filter-operator": "eq",
+                "value": "42"
+            },
+            {
+                "filter-operator": "between",
+                "start-value": "100",
+                "end-value": "150"
+            },
+            {
+                "filter-operator": "eq",
+                "value": "10"
+            }]
+        }]
+    }
+    ]
+}

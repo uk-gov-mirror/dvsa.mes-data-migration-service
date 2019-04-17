@@ -1,0 +1,26 @@
+service: mes-data-migration-service
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+package:
+  individually: true
+
+functions:
+  updateDmsTaskWithDates:
+    timeout: 3600
+    handler: src/functions/UpdateDmsTaskWithDates/framework/handler.handler
+    events:
+      - http:
+          path: /UpdateDmsTaskWithDates
+          method: get
+
+custom:
+  webpack:
+    webpackConfig: 'webpack-sls-offline.config.js'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-webpack
+  - serverless-offline

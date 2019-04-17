@@ -1,0 +1,28 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+# Ignore from project
+node_modules
+build
+npm-debug.log
+.vscode
+*.tar
+*.zip
+dist
+coverage
+src/common/domain/Schema.d.ts
+artefacts
+.dynamodb/
+.serverless/
+.env
+dms-configurator/package-lock.json
+dms-configurator/node_modules
+dms-configurator/coverage
+dms-configurator/build
+.sls.pid
+.nyc_output/

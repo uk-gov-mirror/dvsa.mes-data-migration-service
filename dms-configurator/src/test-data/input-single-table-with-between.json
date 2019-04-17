@@ -1,0 +1,17 @@
+{
+    "sourceSchema": "SOURCE",
+    "destSchema": "dest",
+    "tables": [ 
+        {
+            "sourceName": "TABLE1",
+            "andFilters": [{
+                "column": "COL",
+                "orConditions": [{
+                    "operator": "between",
+                    "start": "01-02-2000",
+                    "end": "03-04-2000"
+                }]
+            }]
+        }
+    ]
+}

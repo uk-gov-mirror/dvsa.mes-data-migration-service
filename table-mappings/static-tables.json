@@ -1,0 +1,315 @@
+{
+    "sourceSchema": "TARSUAT",
+    "destSchema": "tarsreplica",
+    "tables": [
+        {
+            "sourceName": "APPLICATION",
+            "removeColumns": [
+                "FREE_RETEST_IND",	"FREE_TEST_IND", "MEDICAL_IND", "MEETING_PLACE_REQ_IND", "PREF_EARLIEST_DATE",
+                "PREF_INS_OVERRIDE_IND", "PREF_NOT_AFTER_TIME",	"PREF_NOT_BEFORE_TIME",	"PUT_ON_HOLD_DATE",
+                "SPECIAL_NEEDS_CODE", "APP_DATE", "NOTIFY_WHO_CODE", "RECEIPT_DATE", "NOTIFY_HOW_CODE",
+                "TRAINER_PROFILE_OVERRIDE_IND", "APP_CANCELLATION_REASON_CODE",	"HOLD_STATE_CODE",
+                "PREF1_TEST_CENTRE_ID", "PREF2_TEST_CENTRE_ID",	"INSTRUCTOR_ID", "PREF_LATEST_DATE",
+                "PREF_WEEKDAY_IND", "PREF_EVENING_IND", "PREF_SAT_IND", "PREF_SUN_IND",
+                "DTCS_USER_ID",	"HOLD_TEST_SERVICE_ITEM_ID", "CREATED_BY", "CREATED_ON",
+                "UPDATED_BY", "UPDATED_ON", "PREFERRED_DATE", "CANCELLED_BOOKING_SEQ", "RESEND_NOTIF_IND"
+            ]
+        },
+        {
+            "sourceName": "APPLICATION_HISTORY",
+            "removeColumns": [
+                "APP_HISTORY_ID", "ACTIONEE_NAME", "INDIVIDUAL_ID", "INDIVIDUAL_SURNAME",
+                "REASON_DESC", "TEST_CATEGORY_REF", "TC_NAME", "TEST_DATE", "OTHER_APP_ID",
+                "DRIVER_NUMBER", "HOLD_STATE_DESC", "VEHICLE_REGISTRATION_NUMBER",
+                "BKG_SUP_USER_NAME", "BOOKING_ID", "NON_COMPLETION_DESC", "THEORY_NUMBER",
+                "CHANGE_REASON", "RELATIONSHIP", "CREATED_BY", "CREATED_ON", "UPDATED_BY",
+                "UPDATED_ON", "FINANCE_ENTITY_REF"
+
+            ],
+            "andFilters": [
+                {
+                    "column": "EVENT_CODE",
+                    "orConditions": [
+                        {
+                        "operator": "eq",
+                        "value": "1020"
+                    },
+                        {
+                        "operator":"eq",
+                        "value":"1030"
+                    }
+                ]}
+            ]
+        },
+        {
+            "sourceName": "APPLICATION_RSIS_INFO",
+            "removeColumns": [
+                "SENT_FOR_SCANNING"
+
+            ]
+        },
+        {
+            "sourceName": "EXAMINER",
+            "removeColumns": [ 
+                "PROB_PER_START_DATE", "PROB_PER_END_DATE", "DSA_BIKE_IND", "DSA_RADIO_IND", 
+                "WELSH_SPKG_CODE", "DEPLOY_IND", "NON_DEPLOY_TEXT", "SKILL_TEXT", "MAN_PROG_START_DATE", 
+                "MAN_PROG_END_DATE", "UPDATED_ON", "CREATED_ON", "UPDATED_BY", "CREATED_BY", 
+                "MOBILE_IND", "EMAIL_JOURNALS_IND", "DVSA_EMAIL", "STOP_JOURNALS_IND"
+            ]
+        },
+        {
+            "sourceName": "EXAMINER_STATUS",
+            "removeColumns": [ 
+                "EXAMINER_STATUS_TYPE_CODE", "CONTRACT_TYPE_CODE", "AREA_ID",
+                "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON"
+            ]
+        },
+        {
+            "sourceName": "INDIVIDUAL",
+            "removeColumns": [ 
+                "DATE_OF_BIRTH", "TEST_CENTRE_ID", "PREVIOUS_TEST_CENTRE_ID", "PERSON_INITIALS", "PERSON_FULL_NAME", 
+                "PERSON_REQUESTED_NAME", "VAT_REGISTERED", "DEFAULT_ADDRESS_CODE", "GENDER_CODE", "TOTAL_POINTS", 
+                "DATE_OF_FIRST_LICENCE", "LICENCE_EXPIRY_DATE", "LAST_UPDATED_BY_DVLA", "PP_STATUS_CODE", 
+                "PP_DATE_FIRST_ISSUED", "PP_CERTS_ISSUED", "PP_PACKS_ORDERED", "PP_DESPATCH_ADD", 
+                "PP_CONSENT_MARKER", "PP_STARTER_FEE_PAID", "BAD_DEBT_IND", "EXTERNAL_MAIL_CONSENT_IND",
+                "ID_CONFIRMATION_STATUS_CODE", "IS_ORGAN_DONOR", "IS_TITLE_ADDRESS", "DISABLED_MARKER", 
+                "DATE_OF_BIRTH_VERIFIED_CODE", "DATE_OF_DEATH", "NOTIFIED_DECEASED_CODE", "DATE_ENTERED", 
+                "DATE_MOVED", "COUNTRY_OF_BIRTH", "COUNTRY_OF_BIRTH_INTERNAL_CODE", "NATIONALITY_CODE", 
+                "PREFERRED_LANGUAGE_CODE", "REASON_CODE", "STATE_CODE", "COMMUNICATION_PREF_CODE", 
+                "NOTES", "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON", "INCREASE_FEE_IND", 
+                "BOOKING_REVIEW_IND", "INTEGRITY_IND", "NO_MAILINGS", "WEB_IND_CODE", 
+                "ETHNIC_ORIGIN_CODE", "EU_LICENCE_IND", "DVLA_PHOTO_AUTH", "SC_PUBLISH_IND"
+            ]
+        },
+        {
+            "sourceName": "REF_DATA_ITEM_MASTER",
+            "removeColumns": [ 
+                "EXT_DESC", "VALID_FROM_DATE", "VALID_TO_DATE",
+                "PARENT_ITEM_ID", "SORTING_ORDER", "ACTIVE_FLG", "CREATED_BY", "CREATED_ON",
+                "UPDATED_BY", "UPDATED_ON", "DSA_UPDATABLE"
+            ]
+        },
+        {
+            "sourceName": "TEST_CENTRE",
+            "removeColumns": [ 
+                "OPENING_TIME", "CLOSING_TIME", "COMMISSION_DATE", "DECOMMISSION_DATE",
+                "TC_TYPE_CODE", "MAIN_TEST_CENTRE_ID", "EXAMINER_CAPACITY_COUNT",
+                "TEST_ROUTE_CAPACITY_COUNT", "WAITING_ROOM_CAPACITY_COUNT", "FWD_PROGRAM_CREATE_WEEKS",
+                "DIRECTION_TEXT", "BAD_WEATHER_INSTR_TEXT", "MALE_WC_COUNT", "FEMALE_WC_COUNT",
+                "MALE_STAFF_WC_COUNT", "FEMALE_STAFF_WC_COUNT", "PARKING_CAPACITY_COUNT",
+                "RESERVE_PROGRAM_COUNT", "OPEN_RESERVE_PROGRAM_DAYS", "TC_PROG_PERIOD_END_DATE",
+                "PLANNED_MGMT_SLOT_COUNT", "SPECIAL_MESSAGE_TEXT", "MAX_REMOTE_WAIT_WEEKS",
+                "MIN_REMOTE_TEST_COUNT", "REMOTE_TC_LAST_OPEN_DATE", "DEPLOY_CREATED_TO_DATE",
+                "SECTOR_ID", "INDIVIDUAL_ID", "TEST_CATEGORY_REF", "AUTOFILL_IND",
+                "TB_DAY_OF_WEEK", "SPECIAL_NEEDS_INFORMATION", "LA_ID", "PWL_IND", "UPDATED_ON",
+                "CREATED_ON", "CREATED_BY", "UPDATED_BY", "UPDATE_FLAG", "SECURITY_COMPANY_ID",
+                "BRANCH_PRINTER_ID", "TC_RESOURCE_PERIOD_END_DATE", "LAST_NOTIF_PRODUCED_DATE",
+                "LAST_SCHEDULE_PRODUCED_DATE", "DISABLED_WC_COUNT", "LATITUDE", "LONGITUDE"
+            ]
+        },
+        {
+            "sourceName": "TEST_CENTRE_NAME",
+            "removeColumns": [ 
+                "DISPLAY_ORDER", "UPDATED_ON", "CREATED_ON", "CREATED_BY", "UPDATED_BY"
+            ],
+            "andFilters": [
+            {
+                "column": "DISPLAY_ORDER",
+                "orConditions": [ {
+                    "operator": "eq",
+                    "value": "1"
+                }]
+            }]
+        },
+        {
+            "sourceName": "NON_TEST_ACTIVITY_REASON",
+            "removeColumns": [ 
+                "DEPLOYMENT_PRIORITY_NUMBER", "PAYABLE_IND", "WORK_PATTERN_IND", "CREATED_BY", 
+                "CREATED_ON", "UPDATED_BY", "UPDATED_ON", "START_DATE", "END_DATE", "QUALIFICATION_IND", 
+                "SKILL_THRESHOLD_DAYS"
+            ]
+        },
+        {
+            "sourceName": "VEHICLE_SLOT_TYPE",
+            "removeColumns": [ 
+                "VEHICLE_TYPE_CODE", "MINUTES", "VST_DESC", "CREATED_ON", "CREATED_BY", 
+                "UPDATED_ON", "UPDATED_BY"
+            ]
+        },
+        {
+            "sourceName": "BOOKING",
+            "removeColumns": [ 
+                "ACTUAL_TEST_FEE_AMOUNT", "BOOKED_DATE", "CANCELLED_DATE_TIME", "CANCELLED_TC_ID", "LOST_FEE_IND",
+                "NO_CANCEL_ACCEPT_IND", "NON_COMPLETION_CODE", "RETEST_REFUND_IND", "TEST_SERVICE_ITEM_ID",
+                "INCOME_ACCRUED_IND", "FULL_TEST_FEE_AMOUNT", "EXPECTED_TEST_FEE_AMOUNT", "ACCRUED_FIN_TRAN_ID",
+                "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON", "RESOURCE_SLOT_ID"
+            ]
+        },
+        {
+            "sourceName": "VEHICLE",
+            "removeColumns": [
+                "ENGINE_CAPACITY_CC", "ENGINE_POWER_KW", "VEHICLE_REGISTRATION_NUMBER",
+                "TRAILER_LENGTH_M", "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON"
+            ]
+        },
+        {
+            "sourceName": "TEST_SERVICE",
+            "removeColumns": [
+                "TEST_SERVICE_DESCRIPTION", "MEETING_PLACE_IND", "START_DATE", "END_DATE", "CREATED_ON",
+                "CREATED_BY", "UPDATED_ON", "UPDATED_BY", "PRICE_OPTION"
+            ]
+        },
+        {
+            "sourceName": "CUSTOMER_ORDER",
+            "removeColumns": [
+                "STATE_CODE", "RECEIVED_HOW_CODE", "PLANNED_APP_COUNT", "ACTUAL_APP_COUNT",
+                "PAYMENT_RECEIPT_REQD_IND", "CREATED_BY", "CREATED_ON", "INDIVIDUAL_ID",
+                "UPDATED_BY", "UPDATED_ON", "CHARGEABLE_ACTIVITY_ID", "DELEGATED_AUTHORITY_ID"
+            ]
+        },
+        {
+            "sourceName": "CONTACT_DETAILS",
+            "removeColumns": [
+                "ORGANISATION_ID", "REGISTER_ID", "PP_PUPILS_ID", "TEST_CENTRE_ID", "PREMISES_ID",
+                "CONTACT_TYPE_CODE", "CONTACT_NAME", "FAX_NUMBER", "VALID_FROM",
+                "VALID_TO", "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON", "PREF_CONTACT_MODE",
+                "AREA_ID", "EMERGENCY_CONTACT_NUMBER", "SC_ID"
+            ]
+        },
+        {
+            "sourceName": "ADDRESS",
+            "removeColumns": [
+                "AREA_ID", "PREMISES_ID", "PP_PUPILS_ID", "TEST_CENTRE_ID",
+                "VALID_FROM", "VALID_TO", "CARE_OF", "IS_HISTORIC", "IS_VANITY_ADDRESS", "IS_WELSH_ADDRESS",
+                "COUNTRY_CODE", "IS_INSECURE_ADDRESS", "BARRACKS", "BFPO_NUMBER", "RANK", "REGIMENT",
+                "SERVICE_NUMBER", "UNIT", "UNKNOWN_ADDRESS", "CREATED_BY", "CREATED_ON", "UPDATED_BY",
+                "UPDATED_ON", "PAYMENT_CARD_ID", "SC_ID"
+            ],
+            "andFilters": [
+                {
+                    "column": "ADDRESS_TYPE_CODE",
+                    "orConditions": [
+                        {
+                        "operator": "eq",
+                        "value": "1263"
+                    },
+                        {
+                        "operator": "eq",
+                        "value":"1280"
+                    }
+                ]}
+            ]
+        },
+        {
+            "sourceName": "REGISTER",
+            "removeColumns": [
+                "REGISTER_ID", "ORGANISATION_ID", "REGISTER_CODE", "APPLICATION_DATE", "COMMENCEMENT_DATE",
+                "CURRENT_CERTIFICATE", "CERTIFICATE_PREFIX", "CERTIFICATE_SUFFIX", "CERTIFICATE_NUMBER",
+                "DATE_OF_ISSUE", "DATE_OF_EXPIRY", "REFUSAL_REASON_CODE", "REASON_FOR_REFUSAL",
+                "DATE_OF_REFUSAL", "DATE_OF_REMOVAL", "REVOKED_REASON_CODE", "DATE_REVOKED",
+                "DATE_OF_REJECTION", "RENEWAL_DETAILS",	"DATE_CERTIFICATE_RETURNED", "LAST_CHECK_TEST_DATE",
+                "STATUS_CODE", "PREVIOUS_STATUS_CODE", "CONSENT_STATUS_CODE", "CBT_CAT_A_LICENCE_FULL",
+                "CBT_PARTNER", "CBT_CARDINGTON_TRAINED", "CBT_MAIN_TRAINING_SITE_ID", "CBT_DOWN_TRAINED",
+                "CBT_SUPERVISE_LARGE_MC", "CBT_LAST_INVOLVED_TRAINING",	"ATB_AUTHORISED_BY", "DATE_AUTHORISED",
+                "INTERNET_APPLICATION", "VEHICLE_TYPE_CODE", "SE_ID", "PREVIOUS_SE_ID",	"DATE_MOVED",
+                "MOVED_REASON_CODE", "STARTER_PACK_ISSUED",	"STARTER_PACK_NUMBER", "NUMBER_ATTEMPTS_PART2_TEST",
+                "NUMBER_ATTEMPTS_PART3_TEST", "NUMBER_ATTEMPTS_THEORY", "NUMBER_TRAINEE_LICENCES",
+                "NUMBER_PP_PACKS_ISSUED", "PASS_PLUS_IND", "PAYMENT_VALUE", "PDI_TRAINEE_IND", "SECURITY_CODE",
+                "AREA_ID", "SECTOR_ID",	"CENTRE_OF_ACCREDITATION", "PREVIOUS_LICENCE_NO", "PREVIOUS_LICENCE_ISSUE_DATE",
+                "PREVIOUS_LICENCE_EXPIRY_DATE",	"APPEAL_STATUS_CODE", "APPEAL_ACTION_CODE",	"REJECTED_BY",
+                "THEORY_TEST_EXTRACT_FILE",	"THEORY_TEST_EXTRACT_DATE",	"DVLA_EXTRACT_DATE", "ADD_REMOVE",
+                "ISVALID", "CREATED_ON", "CREATED_BY", "UPDATED_ON", "UPDATED_BY", "TESTCENTRE_ID",
+                "APPLICATION_STATUS_CODE", "LICENCE_TYPE", "DATE_21AT_21S_RECVD", "ELIGIBILITY_RESEND_IND",
+                "ADIHPT_SEND_IND", "ADIHPT_EXTRACT_FILE", "ADIHPT_EXTRACT_DATE", "PREMISES_ID",	"DOWN_TRAINER_ID",
+                "DOWN_TRAINER_CERT", "USE_BUSINESS_ADDRESS_IND", "TEST_GAP_MINUTES", "CPD_IND",	"COMMENTS",
+                "REJECTION_REASON_CODE", "EU_LICENCE_TRANSFER_IND",	"COP_IND", "INSTRUCTOR_WEBSITE_URL",
+                "DATE_LAST_APPROVED", "LAST_SC_RESULT_DESC", "SC_INVITATION_DATE"
+            ],
+            "andFilters": [
+                {
+                    "column": "REGISTER_CODE",
+                    "orConditions": [
+                        {
+                            "operator": "eq",
+                            "value": "195"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sourceName": "ORGANISATION_REGISTER",
+            "removeColumns": [
+                "REGISTER_CODE", "BRN", "TRAINING_OFFERED_CODE", "TYPES_OF_COURSE_CODE", "APPLICATION_DATE",
+                "PREFERRED_TEST_CENTRE_ID", "CONSENT_STATUS_CODE", "STATUS_CODE", "COMMENTS", "CREATED_ON",
+                "CREATED_BY", "UPDATED_ON", "UPDATED_BY", "CURRENT_CERTIFICATE", "CERTIFICATE_PREFIX",
+                "CERTIFICATE_SUFFIX", "CERTIFICATE_NUMBER", "DATE_AUTHORISED", "DATE_OF_ISSUE", "DATE_OF_EXPIRY",
+                "TEST_NOTIFICATION", "BAD_DEBT_CODE", "CARD_NUMBER_ENCR"
+            ],
+            "andFilters": [
+                {
+                    "column": "REGISTER_CODE",
+                    "orConditions": [
+                        {
+                            "operator": "eq",
+                            "value": "1418"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "sourceName": "ORGANISATION",
+            "removeColumns": [
+                "NAMED_PRINCIPAL", "VAT_REGISTERED", "COMMUNICATION_PREFERENCE_CODE", "PREFERRED_TEST_CENTRE_ID",
+                "AREA_ID", "SECTOR_ID", "STATUS_CODE", "UNUSED_DL196_CERTS", "REFUND_REQUIRED", "UPDATED_BY",
+                "UPDATED_ON", "CREATED_BY", "CREATED_ON", "SOUNDEX_CODE", "WEB_BUS_CODE", "ABBR_ORGANISATION_NAME"
+            ]
+        },
+        {
+            "sourceName": "BOOKING_CANCELLATION_REASON",
+            "removeColumns": [
+                "BOOKING_CANCEL_REASON_DESC", "START_DATE", "END_DATE", "AUTO_NTA_CODE", "CREATED_BY",
+                "CREATED_ON", "UPDATED_BY", "UPDATED_ON", "EXPENSES_PAYABLE"
+            ]
+        },
+        {
+            "sourceName": "TEST_HISTORY",
+            "removeColumns": [
+                "HISTORY_ID", "ORGANISATION_ID", "REGISTER_ID", "APPLICATION_ID", "CREATED_BY", "CREATED_ON",
+                "UPDATED_BY", "UPDATED_ON", "MARK", "CERTIFICATE_NUMBER", "HPT_CERT_NUMBER", "SOURCE_FILE",
+                "ACTIVE_FLAG", "CHANGE_IND", "THEORY_PASS_DATE_NEGATED", "GRADE_ID", "BOOKING_ID"
+            ]
+        },
+        {
+            "sourceName": "TEST_CATEGORY",
+            "removeColumns": [
+                "TEST_CATEGORY_DESCRIPTION", "MAX_ENGINE_KW", "MAX_PASSENGER_COUNT", "MIN_AGE_YEARS",
+                "MIN_CANDIDATE_NOTICE_DAYS", "MIN_COMBINED_KG", "MIN_COMBINED_LENGTH_M", "MAX_COMBINED_LENGTH_M",
+                "MIN_ENGINE_KW", "MIN_PASSENGER_COUNT", "MIN_TRAILER_LENGTH_M", "MAX_TRAILER_LENGTH_M",
+                "MIN_VEHICLE_LENGTH_M", "MAX_VEHICLE_LENGTH_M", "MIN_VEHICLE_NOTICE_DAYS", "START_DATE",
+                "MIN_ENGINE_CC", "MAX_ENGINE_CC", "END_DATE", "COOLING_OFF_DAYS", "SHORT_NOTICE_DAYS",
+                "REBOOK_SERVICE_LEVEL_DAYS", "VEHICLE_TYPE_CODE", "MIN_VEHICLE_CAB_SEAT_COUNT",
+                "MAX_VEHICLE_CAB_SEAT_COUNT", "MIN_VEHICLE_HEIGHT_M", "MAX_VEHICLE_HEIGHT_M",
+                "MIN_VEHICLE_WIDTH_M", "MAX_VEHICLE_WIDTH_M", "REQUIRED_LICENCE_CATEGORY", "REQUIRED_ENTITLEMENT_TYPE",
+                "DEFAULT_CATEGORY", "AUTO_NCT_IND", "CREATED_ON", "CREATED_BY", "UPDATED_ON", "UPDATED_BY",
+                "VEHICLE_REG_NUMBER_REQD", "MEETING_PLACE_REQD", "ADI_PRN_REQD", "TEST_CATEGORY_GROUP_CODE",
+                "INTEREST_ID", "MIN_CANDIDATE_NOTICE_TIME", "IS_NOMINATED_TB_CATEGORY", "NOMINATED_TB_CATEGORY_DESC",
+                "PROG_ACCESS_LICENCE_CATEGORY", "MIN_PROGRESSIVE_AGE_YEARS"
+            ]
+        },
+        {
+            "sourceName": "AREA",
+            "removeColumns": [
+                "AREA_NAME", "CAND_SHORT_NOTICE_DAYS", "NEXT_DP_NUMBER", "LAST_JOURNAL_DATE", "COMMISSION_DATE",
+                "DECOMMISSION_DATE", "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON", "AREA_COST_CODE"
+            ]
+        },
+        {
+            "sourceName": "NON_WORKING_DAY",
+            "removeColumns": [
+                "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON"
+            ]
+        }
+    ]
+}
