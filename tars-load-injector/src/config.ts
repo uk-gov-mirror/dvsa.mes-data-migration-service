@@ -16,7 +16,7 @@ export const getConfig = (): Config => {
     username: process.env.USERNAME,
     password: process.env.PASSWORD,
     changesPerMinute: getNumberFromEnv('CHANGES_PER_MINUTE') || 60,
-    startDate: moment.utc(process.env.START_DATE || '2017-08-03').toDate(),
+    startDate: moment(process.env.START_DATE || '2017-08-03').toDate(),
   };
 };
 
