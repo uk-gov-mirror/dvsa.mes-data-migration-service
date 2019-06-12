@@ -85,7 +85,7 @@ function addDateFilters(options: Options) {
   const deploymentTimeWindow = Duration.fromObject({ months: deploymentWindowMonths })
     .minus({ days: deploymentWindowDays });
   const endDate = startDate.plus(highLevelSlotTimeWindow);
-  const journalStartWindow = Duration.fromObject({days: journalWindowDaysPast});
+  const journalStartWindow = Duration.fromObject({ days: journalWindowDaysPast });
   const journalStartDate = startDate.minus(journalStartWindow);
 
   addBetweenFilter(options, 'PROGRAMME', 'PROGRAMME_DATE', journalStartDate, endDate, logger);
