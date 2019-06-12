@@ -69,6 +69,7 @@ function addDateFilters(options: Options) {
     highLevelWindowDays,
     deploymentWindowMonths,
     deploymentWindowDays,
+    journalWindowDaysPast,
   } = config();
 
   let startDate: DateTime;
@@ -84,9 +85,11 @@ function addDateFilters(options: Options) {
   const deploymentTimeWindow = Duration.fromObject({ months: deploymentWindowMonths })
     .minus({ days: deploymentWindowDays });
   const endDate = startDate.plus(highLevelSlotTimeWindow);
+  const journalStartWindow = Duration.fromObject({days: journalWindowDaysPast});
+  const journalStartDate = startDate.minus(journalStartWindow);
 
-  addBetweenFilter(options, 'PROGRAMME', 'PROGRAMME_DATE', startDate, endDate, logger);
-  addBetweenFilter(options, 'PROGRAMME_SLOT', 'PROGRAMME_DATE', startDate, endDate, logger);
+  addBetweenFilter(options, 'PROGRAMME', 'PROGRAMME_DATE', journalStartDate, endDate, logger);
+  addBetweenFilter(options, 'PROGRAMME_SLOT', 'PROGRAMME_DATE', journalStartDate, endDate, logger);
 
   const personalCommitmentEndDate = startDate.plus(highLevelSlotTimeWindow);
   const personalCommitmentEndDateTime = personalCommitmentEndDate.plus({ hours: 23, minutes: 59, seconds: 59 });

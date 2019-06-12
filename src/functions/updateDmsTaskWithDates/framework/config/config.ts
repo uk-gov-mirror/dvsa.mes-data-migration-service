@@ -7,6 +7,7 @@ export type Config = {
   highLevelWindowDays: number;
   deploymentWindowMonths: number;
   deploymentWindowDays: number;
+  journalWindowDaysPast: number;
   sourceArn: string;
   targetArn: string;
   tarsSchema: string;
@@ -25,6 +26,7 @@ export const bootstrapConfig = async (): Promise<void> => {
       highLevelWindowDays: Number.parseInt(process.env.HIGH_LEVEL_WINDOW_DAYS || '13', 10),
       deploymentWindowMonths: Number.parseInt(process.env.DEPLOYMENT_WINDOW_MONTHS || '6', 10),
       deploymentWindowDays: Number.parseInt(process.env.DEPLOYMENT_WINDOW_DAYS || '1', 10),
+      journalWindowDaysPast: Number.parseInt(process.env.JOURNAL_WINDOW_DAYS_PAST  || '14', 10),
       sourceArn: throwIfNotPresent(process.env.SOURCE_ARN, 'sourceArn'),
       targetArn: throwIfNotPresent(process.env.TARGET_ARN, 'targetArn'),
       replicationInstanceArn: throwIfNotPresent(process.env.REPLICATION_INSTANCE_ARN, 'replicationInstanceArn'),
