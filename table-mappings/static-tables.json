@@ -314,6 +314,12 @@
             "removeColumns": [
                 "THEORY_NUMBER"
             ]
+        },
+        {
+            "sourceName": "EXAMINER_GRADE",
+            "removeColumns": [
+              "DESCRIPTION", "SECTOR_MANAGER_IND", "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON"
+            ]
         }
     ]
 }
