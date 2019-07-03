@@ -76,7 +76,7 @@
                 "PREFERRED_LANGUAGE_CODE", "REASON_CODE", "STATE_CODE", "COMMUNICATION_PREF_CODE", 
                 "NOTES", "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON", "INCREASE_FEE_IND", 
                 "BOOKING_REVIEW_IND", "INTEGRITY_IND", "NO_MAILINGS", "WEB_IND_CODE", 
-                "EU_LICENCE_IND", "DVLA_PHOTO_AUTH", "SC_PUBLISH_IND"
+                "EU_LICENCE_IND", "DVLA_PHOTO_AUTH", "SC_PUBLISH_IND", "ETHNIC_ORIGIN_CODE"
             ]
         },
         {
@@ -130,7 +130,7 @@
         {
             "sourceName": "VEHICLE_SLOT_TYPE",
             "removeColumns": [ 
-                "VEHICLE_TYPE_CODE", "MINUTES", "VST_DESC", "CREATED_ON", "CREATED_BY", 
+                "SHORT_VST_DESC", "MINUTES", "VST_DESC", "CREATED_ON", "CREATED_BY", 
                 "UPDATED_ON", "UPDATED_BY"
             ]
         },
@@ -307,6 +307,12 @@
             "sourceName": "NON_WORKING_DAY",
             "removeColumns": [
                 "CREATED_BY", "CREATED_ON", "UPDATED_BY", "UPDATED_ON"
+            ]
+        },
+        {
+            "sourceName": "ETHNIC_ORIGIN",
+            "removeColumns": [
+                "THEORY_NUMBER"
             ]
         }
     ]
