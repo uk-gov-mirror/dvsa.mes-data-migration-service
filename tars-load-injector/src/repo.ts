@@ -112,6 +112,14 @@ export const getActiveExaminers = async (connPool: IConnectionPool, activeDate: 
           WHERE ES.INDIVIDUAL_ID = E.INDIVIDUAL_ID
           AND NVL(ES.END_DATE, TO_DATE('01/01/4000', 'DD/MM/YYYY')) > :activeDate
         )
+      AND E.INDIVIDUAL_ID IN
+        (
+          SELECT PS.INDIVIDUAL_ID
+          FROM TARSUAT.BOOKING B, TARSUAT.PROGRAMME_SLOT PS
+          WHERE B.SLOT_ID = PS.SLOT_ID
+          AND B.STATE_CODE = 1
+          AND TRUNC(PS.PROGRAMME_DATE) = TRUNC(:activeDate)
+        )
     `,
     {
       activeDate,
