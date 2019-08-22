@@ -96,11 +96,11 @@ function addDateFilters(options: Options) {
 
   addOnOrBeforeFilter(options, 'PERSONAL_COMMITMENT', 'START_DATE_TIME',
                       personalCommitmentEndDateTime, logger);
-  addOnOrAfterFilter(options, 'PERSONAL_COMMITMENT', 'END_DATE_TIME', startDate, logger);
+  addOnOrAfterFilter(options, 'PERSONAL_COMMITMENT', 'END_DATE_TIME', journalStartDate, logger);
 
   const deploymentEndDate = startDate.plus(deploymentTimeWindow);
   addOnOrBeforeFilter(options, 'DEPLOYMENT', 'START_DATE', deploymentEndDate, logger);
-  addOnOrAfterFilter(options, 'DEPLOYMENT', 'END_DATE', startDate, logger);
+  addOnOrAfterFilter(options, 'DEPLOYMENT', 'END_DATE', journalStartDate, logger);
 
   const ethnicOriginStartDate = startDate.minus(Duration.fromObject({ years: 3 }));
   addBetweenFilter(options, 'ETHNIC_ORIGIN', 'LOADED_DATE', ethnicOriginStartDate, startDate, logger);
